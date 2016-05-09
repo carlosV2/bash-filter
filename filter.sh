@@ -25,7 +25,7 @@ function filter()
         if [[ "${line}" == "" ]]; then
             blank=$((blank + 1))
         else
-            result=`eval "echo '${line}' ${filters}"`
+            result=`eval "echo '${line//\'/\'\"'\"'}' ${filters}"`
 
             if [[ "${result}" != "" ]]; then
                 echo "${line}"
