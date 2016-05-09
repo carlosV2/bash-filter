@@ -93,6 +93,11 @@ The Road to Little Dribbling - Bill Bryson
 Found 7 of 10 (0 blank lines)
 ```
 
+Alternatively, the `+` metacharacter can be applied with the same result:
+```
+$ cat bestsellers.txt | filter +the
+```
+
 This filter is matching "them" too but we only want to match the word "the":
 ```
 $ cat bestsellers.txt | filter =the
