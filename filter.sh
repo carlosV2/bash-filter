@@ -13,6 +13,8 @@ function filter()
             param="-v"
         elif [ "${arg:0:1}" == "+" ]; then
             arg="${arg:1}"
+        elif [ "${arg:0:1}" == "=" ]; then
+            arg=" ${arg:1} "
         fi
 
         filters="${filters} | grep ${param} -i -- \"${arg}\""
@@ -25,7 +27,7 @@ function filter()
         if [[ "${line}" == "" ]]; then
             blank=$((blank + 1))
         else
-            result=`eval "echo '${line//\'/\'\"'\"'}' ${filters}"`
+            result=`eval "echo ' ${line//\'/\'\"'\"'} ' ${filters}"`
 
             if [[ "${result}" != "" ]]; then
                 echo "${line}"
