@@ -11,9 +11,11 @@ function filter()
         if [ "${arg:0:1}" == "-" ]; then
             arg="${arg:1}"
             param="-v"
+        elif [ "${arg:0:1}" == "+" ]; then
+            arg="${arg:1}"
         fi
 
-        filters="${filters} | grep ${param} -i \"${arg}\""
+        filters="${filters} | grep ${param} -i -- \"${arg}\""
     done
 
     total=0
