@@ -39,7 +39,26 @@ does not contain `=word`.
 
 By default, if no `+` or `-` metacharacter is provided, the `+` metacharacter is applied automatically.
 
-This command returns some  
+This command appends some stats at the end. Those stats contains:
+- The number of matching lines
+- The total number of lines
+- The number of (skipped) blank lines
+
+If you don't want those stats to be appended you can set the `$FILTER_STATS` variable to `false`:
+```
+$ export FILTER_STATS=false
+```
+
+In case you want the stats but you don't want to color them you can set the `$FILTER_COLORS` variable to `false`:
+```
+$ export FILTER_COLORS=false
+```
+
+You can also make these variable persistent by writing them into your bash profile:
+```
+$ echo "export FILTER_STATS=false" >> ~/.bash_profile
+$ echo "export FILTER_COLORS=false" >> ~/.bash_profile
+```
 
 Examples
 ========
