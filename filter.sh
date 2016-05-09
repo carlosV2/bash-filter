@@ -34,12 +34,12 @@ function filter()
     done
 
     if [[ ${FILTER_STATS} != false ]]; then
+        blank="${blank} blank lines"
+
         if [[ ${FILTER_COLORS} != false ]]; then
             total="${GREEN}${total}${RESET}"
             found="${GREEN}${found}${RESET}"
-            blank="${YELLOW}${blank} blank lines${RESET}"
-        else
-            blank="${blank} blank lines"
+            blank="${YELLOW}${blank}${RESET}"
         fi
 
         echo
