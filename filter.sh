@@ -8,18 +8,26 @@ function filter()
     for arg in "$@"
     do
         param=""
-        if [ "${arg:0:1}" == "-" ]; then
-            arg="${arg:1}"
-            param="-v"
-        elif [ "${arg:0:1}" == "+" ]; then
-            arg="${arg:1}"
-        elif [ "${arg:0:1}" == "=" ]; then
-            arg=" ${arg:1} "
+        search="${arg}"
+
+        if [ "${search:0:1}" == "=" ]; then
+            search="${search:1}"
         fi
 
-        filters="${filters} | grep ${param} -i -- \"${arg}\""
-    done
+        if [ "${search:0:1}" == "-" ]; then
+            search="${search:1}"
+            param="-v"
+        elif [ "${search:0:1}" == "+" ]; then
+            search="${search:1}"
+        fi
 
+        if [ "${arg:0:1}" == "=" ]; then
+            search=" ${search} "
+        fi
+
+        filters="${filters} | grep ${param} -i -- \"${search}\""
+    done
+    
     total=0
     found=0
     blank=0
