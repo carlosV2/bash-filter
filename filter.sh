@@ -16,7 +16,6 @@ function filter()
         filters="${filters} | grep ${param} -i \"${arg}\""
     done
 
-
     total=0
     found=0
     blank=0
@@ -25,8 +24,8 @@ function filter()
             blank=$((blank + 1))
         else
             result=`eval "echo '${line}' ${filters}"`
-            
-            if [[ "${result}" == "${line}" ]]; then
+
+            if [[ "${result}" != "" ]]; then
                 echo "${line}"
                 found=$((found + 1))
             fi
