@@ -31,7 +31,7 @@ function filter()
     total=0
     found=0
     blank=0
-    while read line; do
+    while read -r line; do
         if [[ "${line}" == "" ]]; then
             blank=$((blank + 1))
         else
