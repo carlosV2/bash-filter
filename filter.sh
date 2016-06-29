@@ -210,3 +210,7 @@ function filter()
     unset -f pluralify
     unset -f filterify
 }
+
+UPDATE_PATH=`dirname ${BASH_SOURCE}`
+$(cd ${UPDATE_PATH}; git submodule update --init -q) > /dev/null
+source "${UPDATE_PATH}/lib/update/update.sh"
